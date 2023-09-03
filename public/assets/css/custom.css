@@ -1,0 +1,23 @@
+/* start main rules */
+@font-face {
+    font-family: 'rb_font';
+    src: url('/fonts/RB_arabic.ttf?#iefix');
+}
+
+body {
+    font-family: Poppins, 'rb_font', sans-serif, arial !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Poppins, 'rb_font', sans-serif, arial !important;
+}
+
+.invalid-feedback {
+    display: block;
+    min-height: 0px;
+}
+
+.table-component__table .table thead, .table-component__table .table tbody, .table-component__table .table th,
+.table-component__table td {
+    vertical-align: middle !important;
+}
