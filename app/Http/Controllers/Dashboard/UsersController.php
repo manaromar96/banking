@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -63,6 +64,30 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        $account=new Account();
+        $account->number= str_random(5).'-'. EUR ;
+        $account->user_id= auth()->guard('web')->user();
+        $account->currency=EUR;
+        $account->save();
+
+        $account=new Account();
+        $account->number= str_random(5).'-'. EUR ;
+        $account->user_id= auth()->guard('web')->user();
+        $account->currency=EUR;
+        $account->save();
+
+        $account=new Account();
+        $account->number= str_random(5).'-'. JOD ;
+        $account->user_id= auth()->guard('web')->user();
+        $account->currency=EUR;
+        $account->save();
+
 
 
         return response()->json(['message' => trans('messages.saved_successfully')]);
